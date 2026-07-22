@@ -1,1 +1,524 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Phakama Eastern Cape — Rescuing & Reviving the Eastern Cape</title>
+  <meta name="description" content="A people-powered civic movement working with communities to promote accountable leadership, strengthen local development and create sustainable opportunities for all." />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Bebas+Neue&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --primary: #005F47;
+      --primary-fg: #ffffff;
+      --secondary: #1A3A2A;
+      --bg: #F9F8F6;
+      --fg: #0A0A0A;
+      --muted: #6B7280;
+      --border: #E5E7EB;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--fg); }
+    .font-display { font-family: 'Bebas Neue', sans-serif; letter-spacing: 0.02em; }
+    .btn-primary {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--primary); color: #fff; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.1em; font-size: 12px;
+      padding: 0 28px; height: 56px; border-radius: 9999px; border: none;
+      cursor: pointer; text-decoration: none; transition: opacity .2s;
+    }
+    .btn-primary:hover { opacity: .88; }
+    .btn-outline {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: transparent; color: var(--fg); font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.1em; font-size: 12px;
+      padding: 0 28px; height: 56px; border-radius: 9999px;
+      border: 2px solid var(--fg); cursor: pointer; text-decoration: none; transition: opacity .2s;
+    }
+    .btn-outline:hover { opacity: .7; }
+    .btn-white {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: #fff; color: var(--secondary); font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.1em; font-size: 12px;
+      padding: 0 28px; height: 48px; border-radius: 9999px; border: none;
+      cursor: pointer; text-decoration: none; transition: opacity .2s;
+    }
+    .btn-white:hover { opacity: .88; }
+    .btn-outline-white {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: transparent; color: #fff; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.1em; font-size: 12px;
+      padding: 0 28px; height: 48px; border-radius: 9999px;
+      border: 2px solid rgba(255,255,255,.6); cursor: pointer; text-decoration: none; transition: opacity .2s;
+    }
+    .btn-outline-white:hover { border-color: #fff; }
+    .badge {
+      display: inline-flex; align-items: center;
+      background: var(--primary); color: #fff; font-weight: 700;
+      text-transform: uppercase; letter-spacing: .12em; font-size: 10px;
+      padding: 4px 12px;
+    }
+    .badge-dark { background: rgba(255,255,255,.2); color: #fff; }
+    .badge-muted { background: rgba(0,0,0,.08); color: var(--fg); }
+    .card { background: #fff; border-radius: 24px; }
+    .section-grid { padding: 16px; gap: 16px; display: grid; border-bottom: 1px solid var(--border); }
+    @media(min-width: 768px) { .section-grid { padding: 32px; gap: 32px; } }
+    .stat-counter { font-size: 80px; line-height: 1; font-family: 'Bebas Neue', sans-serif; color: #fff; }
+    img { max-width: 100%; }
+    a { color: inherit; }
+    .nav-link { font-family: 'Bebas Neue', sans-serif; font-size: 18px; text-transform: uppercase; letter-spacing: .05em; padding: 10px 16px; display: block; transition: color .2s; text-decoration: none; }
+    .nav-link:hover { color: var(--primary); }
+    /* Mobile nav */
+    #mobile-menu { display: none; }
+    #mobile-menu.open { display: flex; }
+    .tag { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: .12em; }
+  </style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════════════════ NAVBAR ══ -->
+<header style="background:#fff; border-bottom:1px solid var(--border); position:sticky; top:0; z-index:50; height:72px; display:flex; align-items:center; justify-content:space-between; padding:0 24px;">
+  <a href="#" style="display:flex; align-items:center; gap:12px; text-decoration:none;">
+    <img src="https://raw.githubusercontent.com/phakamaec/Phakamaec/main/attached_assets/Phakama_EC_logo_1783771752368.png"
+         onerror="this.style.display='none'"
+         alt="Phakama EC" style="height:44px; width:auto; object-fit:contain;" />
+    <span class="font-display" style="font-size:20px; color:var(--fg);">Phakama Eastern Cape</span>
+  </a>
+  <nav style="display:none; gap:4px;" id="desktop-nav">
+    <a href="#about" class="nav-link">About Us</a>
+    <a href="#how-we-work" class="nav-link">How We Work</a>
+    <a href="#priorities" class="nav-link">Programmes</a>
+    <a href="#events" class="nav-link">Events</a>
+    <a href="#news" class="nav-link">News</a>
+    <a href="#contact" class="nav-link">Contact</a>
+  </nav>
+  <div style="display:flex; gap:8px; align-items:center;">
+    <a href="#join" class="btn-primary" style="height:40px; padding:0 20px; font-size:11px;">Join Us</a>
+    <a href="#donate" class="btn-outline" style="height:40px; padding:0 20px; font-size:11px; border-width:1.5px;">Donate</a>
+  </div>
+</header>
+
+<main>
+
+<!-- ═══════════════════════════════════════════════════════ 1. HERO ══ -->
+<section class="section-grid" style="grid-template-columns:1fr; min-height:85vh;">
+  <div class="card" style="padding:48px 40px; min-height:75vh; display:flex; flex-direction:column; justify-content:flex-end; position:relative; overflow:hidden; background:linear-gradient(160deg,#f0f4f1 0%,#dde8e2 100%);">
+    <div style="position:absolute; inset:0; background:url('https://images.unsplash.com/photo-1594818379496-da1e345b0ded?w=1600&q=80') center/cover; opacity:.15; mix-blend-mode:luminosity;"></div>
+    <div style="position:relative; z-index:1;">
+      <span class="badge" style="margin-bottom:24px; display:inline-flex;">A Civic Movement</span>
+      <h1 class="font-display" style="font-size:clamp(56px,10vw,112px); line-height:.85; color:var(--fg); margin-bottom:24px;">
+        Rescuing &amp;<br/><span style="color:var(--primary);">Reviving the EC.</span>
+      </h1>
+      <p style="font-size:clamp(18px,2.5vw,26px); font-weight:700; max-width:640px; line-height:1.4; color:var(--fg); margin-bottom:32px;">
+        A people-powered civic movement working with communities to promote accountable leadership, strengthen local development and create sustainable opportunities for all.
+      </p>
+      <div style="display:flex; flex-wrap:wrap; gap:12px;">
+        <a href="#join" class="btn-primary">Join Us</a>
+        <a href="#join" class="btn-outline">Become a Member</a>
+        <a href="#contact" class="btn-outline">Partner With Us</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════ 2. WELCOME ══ -->
+<section id="about" class="section-grid" style="grid-template-columns:1fr;">
+  <div style="display:grid; grid-template-columns:1fr; gap:16px;">
+    <div class="card" style="padding:48px 40px;">
+      <span class="badge" style="margin-bottom:24px;">Welcome to Phakama</span>
+      <h2 class="font-display" style="font-size:clamp(40px,6vw,72px); line-height:.9; margin-bottom:28px;">Who We Are.</h2>
+      <p style="font-size:18px; line-height:1.7; color:var(--fg); margin-bottom:20px; max-width:680px;">
+        Learn who we are, what we stand for and how we are working with communities across the Eastern Cape to strengthen accountability, promote development and build a better future for all.
+      </p>
+      <p style="font-size:18px; line-height:1.7; color:var(--muted); max-width:680px;">
+        Although Phakama will participate in democratic processes where communities mandate us to do so, our identity remains that of a civic movement committed to serving communities beyond election cycles.
+      </p>
+    </div>
+    <div class="card" style="background:var(--secondary); color:#fff; padding:48px 40px;">
+      <span class="badge badge-dark" style="margin-bottom:24px;">Established September 2025</span>
+      <div style="display:flex; flex-direction:column; gap:16px; max-width:600px;">
+        <div style="display:flex; gap:16px; align-items:flex-start;">
+          <div style="width:28px; height:28px; border-radius:50%; background:#fff; color:var(--secondary); display:flex; align-items:center; justify-content:center; font-weight:800; font-size:12px; flex-shrink:0;">1</div>
+          <p style="font-weight:700; color:rgba(255,255,255,.9); font-size:17px; line-height:1.4;">Registered NPC &amp; DSD-registered NPO</p>
+        </div>
+        <div style="display:flex; gap:16px; align-items:flex-start;">
+          <div style="width:28px; height:28px; border-radius:50%; background:#fff; color:var(--secondary); display:flex; align-items:center; justify-content:center; font-weight:800; font-size:12px; flex-shrink:0;">2</div>
+          <p style="font-weight:700; color:rgba(255,255,255,.9); font-size:17px; line-height:1.4;">13 documented civic intervention case studies</p>
+        </div>
+        <div style="display:flex; gap:16px; align-items:flex-start;">
+          <div style="width:28px; height:28px; border-radius:50%; background:#fff; color:var(--secondary); display:flex; align-items:center; justify-content:center; font-weight:800; font-size:12px; flex-shrink:0;">3</div>
+          <p style="font-weight:700; color:rgba(255,255,255,.9); font-size:17px; line-height:1.4;">13 strategic partnerships and collaboration frameworks</p>
+        </div>
+        <div style="display:flex; gap:16px; align-items:flex-start;">
+          <div style="width:28px; height:28px; border-radius:50%; background:#fff; color:var(--secondary); display:flex; align-items:center; justify-content:center; font-weight:800; font-size:12px; flex-shrink:0;">4</div>
+          <p style="font-weight:700; color:rgba(255,255,255,.9); font-size:17px; line-height:1.4;">Province-wide programmes across Governance, Economic Development and Social Cohesion</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════ 3. STATS ══ -->
+<section class="section-grid" style="grid-template-columns:repeat(auto-fit,minmax(260px,1fr));">
+  <div class="card" style="background:var(--primary); color:#fff; padding:40px; min-height:300px; display:flex; flex-direction:column; justify-content:space-between;">
+    <span class="badge badge-dark">Impact</span>
+    <div>
+      <div class="stat-counter">13</div>
+      <div style="font-size:22px; font-weight:800; text-transform:uppercase; letter-spacing:.03em; margin-bottom:8px;">Case Studies</div>
+      <p style="color:rgba(255,255,255,.7); font-weight:600;">Documented civic intervention case studies across the province.</p>
+    </div>
+  </div>
+  <div class="card" style="background:var(--primary); color:#fff; padding:40px; min-height:300px; display:flex; flex-direction:column; justify-content:space-between;">
+    <span class="badge badge-dark">Scope</span>
+    <div>
+      <div class="stat-counter">29%</div>
+      <div style="font-size:22px; font-weight:800; text-transform:uppercase; letter-spacing:.03em; margin-bottom:8px;">Regional Reach</div>
+      <p style="font-weight:700; font-size:12px; text-transform:uppercase; letter-spacing:.1em;">Active in 2 of 7 regions in the province</p>
+    </div>
+  </div>
+  <div class="card" style="background:var(--primary); color:#fff; padding:40px; min-height:300px; display:flex; flex-direction:column; justify-content:space-between;">
+    <span class="badge badge-dark">Partnerships</span>
+    <div>
+      <div class="stat-counter">13</div>
+      <div style="font-size:22px; font-weight:800; text-transform:uppercase; letter-spacing:.03em; margin-bottom:8px;">Collaborations</div>
+      <p style="color:rgba(255,255,255,.7); font-weight:600;">Strategic partnerships and collaboration frameworks across sectors.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════ 4. HOW WE WORK ══ -->
+<section id="how-we-work" class="section-grid" style="grid-template-columns:1fr;">
+  <div style="display:grid; grid-template-columns:1fr; gap:16px;">
+    <div class="card" style="background:var(--secondary); color:#fff; padding:48px 40px;">
+      <span class="badge badge-dark" style="margin-bottom:24px;">Our Approach</span>
+      <h2 class="font-display" style="font-size:clamp(40px,6vw,72px); line-height:.9; margin-bottom:20px;">How We Work.</h2>
+      <p style="font-size:18px; color:rgba(255,255,255,.8); line-height:1.7; max-width:640px;">
+        Lasting change happens when communities, government, traditional leaders, business and civil society work together around a shared vision for the future.
+      </p>
+    </div>
+    <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:16px;">
+      <div class="card" style="padding:36px; border:1px solid var(--border);">
+        <div class="font-display" style="font-size:56px; color:rgba(0,95,71,.2); line-height:1;">01</div>
+        <div style="margin-top:24px;">
+          <h3 class="font-display" style="font-size:28px; color:var(--fg); margin-bottom:12px;">Community First</h3>
+          <p style="color:var(--muted); font-weight:500; line-height:1.7;">We listen before we act, ensuring that our work is informed by the real needs and aspirations of communities.</p>
+        </div>
+      </div>
+      <div class="card" style="padding:36px; border:1px solid var(--border);">
+        <div class="font-display" style="font-size:56px; color:rgba(0,95,71,.2); line-height:1;">02</div>
+        <div style="margin-top:24px;">
+          <h3 class="font-display" style="font-size:28px; color:var(--fg); margin-bottom:12px;">Partnership over Confrontation</h3>
+          <p style="color:var(--muted); font-weight:500; line-height:1.7;">We believe respectful engagement, collaboration and evidence-based advocacy produce more sustainable outcomes than conflict alone.</p>
+        </div>
+      </div>
+      <div class="card" style="padding:36px; border:1px solid var(--border);">
+        <div class="font-display" style="font-size:56px; color:rgba(0,95,71,.2); line-height:1;">03</div>
+        <div style="margin-top:24px;">
+          <h3 class="font-display" style="font-size:28px; color:var(--fg); margin-bottom:12px;">From Ideas to Action</h3>
+          <p style="color:var(--muted); font-weight:500; line-height:1.7;">We strive to move beyond identifying problems by building partnerships, supporting implementation and contributing to long-term solutions.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════ 5. CURRENT PRIORITIES ══ -->
+<section id="priorities" class="section-grid">
+  <div>
+    <span class="badge" style="margin-bottom:16px;">Current Priorities</span>
+    <h2 class="font-display" style="font-size:clamp(40px,6vw,72px); line-height:.9; margin-bottom:32px;">What We're Focused On.</h2>
+    <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:16px;">
+      <div class="card" style="padding:36px; border:1px solid var(--border);">
+        <div style="font-size:40px; margin-bottom:20px;">🎓</div>
+        <h3 class="font-display" style="font-size:22px; color:var(--fg); margin-bottom:12px; line-height:1.1;">Community Career Exhibition &amp; Rural Development Dialogue</h3>
+        <p style="color:var(--muted); font-weight:500; line-height:1.7; font-size:15px;">Preparing young people for brighter futures through education, career guidance and rural development dialogue in Mbashe Local Municipality.</p>
+      </div>
+      <div class="card" style="padding:36px; border:1px solid var(--border);">
+        <div style="font-size:40px; margin-bottom:20px;">🏦</div>
+        <h3 class="font-display" style="font-size:22px; color:var(--fg); margin-bottom:12px; line-height:1.1;">Phakama Cooperative Financial Institution (CFI)</h3>
+        <p style="color:var(--muted); font-weight:500; line-height:1.7; font-size:15px;">Building community-owned financial solutions that promote savings, investment and economic empowerment.</p>
+      </div>
+      <div class="card" style="padding:36px; border:1px solid var(--border);">
+        <div style="font-size:40px; margin-bottom:20px;">🇿🇦</div>
+        <h3 class="font-display" style="font-size:22px; color:var(--fg); margin-bottom:12px; line-height:1.1;">Community Safety &amp; Rule of Law</h3>
+        <p style="color:var(--muted); font-weight:500; line-height:1.7; font-size:15px;">Promoting lawful governance, effective law enforcement and safer communities through constructive civic engagement and advocacy.</p>
+      </div>
+      <div class="card" style="padding:36px; border:1px solid var(--border);">
+        <div style="font-size:40px; margin-bottom:20px;">🗳️</div>
+        <h3 class="font-display" style="font-size:22px; color:var(--fg); margin-bottom:12px; line-height:1.1;">Local Government Election Readiness</h3>
+        <p style="color:var(--muted); font-weight:500; line-height:1.7; font-size:15px;">Preparing to strengthen local democracy by promoting ethical leadership, active citizenship and community-centred representation in the 2026 Local Government Elections.</p>
+      </div>
+      <div class="card" style="padding:36px; border:1px solid var(--border);">
+        <div style="font-size:40px; margin-bottom:20px;">🤝</div>
+        <h3 class="font-display" style="font-size:22px; color:var(--fg); margin-bottom:12px; line-height:1.1;">Strategic Partnerships &amp; Organisational Growth</h3>
+        <p style="color:var(--muted); font-weight:500; line-height:1.7; font-size:15px;">Building strong partnerships, strengthening organisational capacity and expanding Phakama's provincial footprint to increase sustainable community impact.</p>
+      </div>
+      <div class="card" style="padding:36px; background:var(--primary); color:#fff; display:flex; flex-direction:column; justify-content:space-between; min-height:200px;">
+        <span style="font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:.12em; opacity:.6;">Get Involved</span>
+        <div>
+          <p class="font-display" style="font-size:26px; line-height:1.05; margin-bottom:20px;">There is a place for you in the Phakama movement.</p>
+          <a href="#join" class="btn-white" style="height:42px; font-size:11px;">Join Us →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════ 7. EVENTS ══ -->
+<section id="events" class="section-grid">
+  <div>
+    <span class="badge" style="margin-bottom:16px;">Calendar</span>
+    <h2 class="font-display" style="font-size:clamp(40px,6vw,72px); line-height:.9; margin-bottom:32px;">Upcoming Events.</h2>
+    <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(320px,1fr)); gap:16px;">
+      <div class="card" style="overflow:hidden; border:1px solid var(--border);">
+        <div style="background:linear-gradient(135deg,var(--primary),var(--secondary)); height:180px; display:flex; align-items:center; justify-content:center; position:relative;">
+          <span style="font-size:64px;">🏦</span>
+          <span class="badge" style="position:absolute; top:16px; left:16px;">Financial Inclusion</span>
+        </div>
+        <div style="padding:28px;">
+          <h3 class="font-display" style="font-size:26px; color:var(--fg); margin-bottom:12px;">Prospective CFI Workshop</h3>
+          <div style="display:flex; flex-direction:column; gap:6px; color:var(--muted); font-size:14px; font-weight:600;">
+            <span>📅 17 July 2026 · 10:00 – 14:00</span>
+            <span>📍 Mthatha</span>
+          </div>
+          <a href="https://forms.gle/6YUy8Jhq8dN89fuA8" target="_blank" class="btn-primary" style="margin-top:20px; height:44px; font-size:11px; width:100%; justify-content:center;">RSVP Now</a>
+        </div>
+      </div>
+      <div class="card" style="overflow:hidden; border:1px solid var(--border);">
+        <div style="background:linear-gradient(135deg,#2D6A4F,#1B4332); height:180px; display:flex; align-items:center; justify-content:center; position:relative;">
+          <span style="font-size:64px;">🎓</span>
+          <span class="badge" style="position:absolute; top:16px; left:16px;">Education &amp; Development</span>
+        </div>
+        <div style="padding:28px;">
+          <h3 class="font-display" style="font-size:26px; color:var(--fg); margin-bottom:12px;">Sustainable Education &amp; Community Development</h3>
+          <div style="display:flex; flex-direction:column; gap:6px; color:var(--muted); font-size:14px; font-weight:600;">
+            <span>📅 31 July 2026 · 10:00 – 14:00</span>
+            <span>📍 Shinira A/A</span>
+          </div>
+          <a href="mailto:info@phakamaec.org" class="btn-primary" style="margin-top:20px; height:44px; font-size:11px; width:100%; justify-content:center;">Contact for Info</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════ 8. NEWS ══ -->
+<section id="news" class="section-grid">
+  <div>
+    <span class="badge badge-muted" style="background:var(--secondary); color:#fff; margin-bottom:16px;">News &amp; Media</span>
+    <h2 class="font-display" style="font-size:clamp(40px,6vw,72px); line-height:.9; margin-bottom:32px;">Latest Updates.</h2>
+    <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:16px;">
+      <div class="card" style="overflow:hidden; border:1px solid var(--border); display:flex; flex-direction:column;">
+        <img src="https://images.unsplash.com/photo-1529107386315-e1a2ed48a620?w=600&q=80" alt="Leadership Visit" style="width:100%; height:200px; object-fit:cover;" />
+        <div style="padding:24px; flex:1; display:flex; flex-direction:column;">
+          <div style="display:flex; gap:8px; margin-bottom:12px; align-items:center;">
+            <span class="badge" style="font-size:9px;">Community Development</span>
+            <span style="color:var(--muted); font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:.08em;">1 July 2025</span>
+          </div>
+          <h3 class="font-display" style="font-size:20px; color:var(--fg); margin-bottom:10px; line-height:1.1; flex:1;">Phakama EC Leadership Explores Partnership to Revive Community Development Centre</h3>
+          <p style="color:var(--muted); font-size:14px; line-height:1.6;">Senior leadership visited a community development centre to explore a potential partnership that could restore a once-thriving hub for food production and skills training.</p>
+        </div>
+      </div>
+      <div class="card" style="overflow:hidden; border:1px solid var(--border); display:flex; flex-direction:column;">
+        <img src="https://images.unsplash.com/photo-1591196701248-a509b7c55be4?w=600&q=80" alt="March" style="width:100%; height:200px; object-fit:cover;" />
+        <div style="padding:24px; flex:1; display:flex; flex-direction:column;">
+          <div style="display:flex; gap:8px; margin-bottom:12px; align-items:center;">
+            <span class="badge" style="font-size:9px;">Community Action</span>
+            <span style="color:var(--muted); font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:.08em;">30 June 2025</span>
+          </div>
+          <h3 class="font-display" style="font-size:20px; color:var(--fg); margin-bottom:10px; line-height:1.1; flex:1;">Eastern Cape Communities March Against Illegal Immigration</h3>
+          <p style="color:var(--muted); font-size:14px; line-height:1.6;">Hundreds of Eastern Cape residents took to the streets in a peaceful march calling on government to enforce immigration laws and protect local jobs, services and communities.</p>
+        </div>
+      </div>
+      <div class="card" style="overflow:hidden; border:1px solid var(--border); display:flex; flex-direction:column;">
+        <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=600&q=80" alt="June March" style="width:100%; height:200px; object-fit:cover;" />
+        <div style="padding:24px; flex:1; display:flex; flex-direction:column;">
+          <div style="display:flex; gap:8px; margin-bottom:12px; align-items:center;">
+            <span class="badge" style="font-size:9px;">Community Action</span>
+            <span style="color:var(--muted); font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:.08em;">10 June 2025</span>
+          </div>
+          <h3 class="font-display" style="font-size:20px; color:var(--fg); margin-bottom:10px; line-height:1.1; flex:1;">Phakama EC Holds Peaceful March Calling for Stronger Immigration Enforcement</h3>
+          <p style="color:var(--muted); font-size:14px; line-height:1.6;">Phakama Eastern Cape organised a peaceful, lawful march raising community concerns about illegal immigration and calling on government to strengthen enforcement of immigration laws.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════ 9. GET INVOLVED ══ -->
+<section id="join" class="section-grid">
+  <div class="card" style="background:var(--primary); color:#fff; padding:clamp(40px,6vw,96px);">
+    <span class="badge badge-dark" style="margin-bottom:24px;">Get Involved</span>
+    <h2 class="font-display" style="font-size:clamp(40px,7vw,88px); line-height:.85; margin-bottom:20px;">Building a Better<br/>Eastern Cape<br/>Requires All of Us.</h2>
+    <p style="font-size:18px; color:rgba(255,255,255,.8); font-weight:500; max-width:560px; line-height:1.7; margin-bottom:36px;">
+      Whether you want to become a member, volunteer your skills, partner with us, sponsor a programme or support our work through a donation, there is a place for you in the Phakama movement.
+    </p>
+    <div style="display:flex; flex-wrap:wrap; gap:12px;">
+      <a href="mailto:info@phakamaec.org?subject=Membership Application" class="btn-white">Become a Member</a>
+      <a href="mailto:info@phakamaec.org?subject=Volunteer Application" class="btn-outline-white">Volunteer</a>
+      <a href="mailto:info@phakamaec.org?subject=Partnership Enquiry" class="btn-outline-white">Partner With Us</a>
+      <a href="#donate" class="btn-outline-white">Donate</a>
+      <a href="#contact" class="btn-outline-white">Contact Us</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════ DONATE ══ -->
+<section id="donate" class="section-grid">
+  <div class="card" style="padding:clamp(40px,6vw,80px);">
+    <span class="badge" style="margin-bottom:24px;">Support Us</span>
+    <h2 class="font-display" style="font-size:clamp(36px,5vw,64px); line-height:.9; margin-bottom:12px;">Make a Contribution</h2>
+    <p style="color:var(--muted); font-weight:500; font-size:17px; margin-bottom:40px; max-width:500px; line-height:1.6;">
+      Transfer directly to our bank account. Please use your name as the payment reference.
+    </p>
+    <div style="border:1px solid var(--border); border-radius:16px; overflow:hidden; max-width:560px;">
+      <div style="background:var(--primary); padding:16px 24px;">
+        <span style="font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:.12em; color:#fff;">Phakama Eastern Cape Banking Details</span>
+      </div>
+      <table style="width:100%; border-collapse:collapse;">
+        <tr style="border-bottom:1px solid var(--border);">
+          <td style="padding:16px 24px; font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:.1em; color:var(--muted); white-space:nowrap;">Bank</td>
+          <td style="padding:16px 24px; font-weight:700; font-size:16px; text-align:right;">First National Bank</td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--border);">
+          <td style="padding:16px 24px; font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:.1em; color:var(--muted); white-space:nowrap;">Account Number</td>
+          <td style="padding:16px 24px; font-weight:700; font-size:16px; text-align:right;">63173676546</td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--border);">
+          <td style="padding:16px 24px; font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:.1em; color:var(--muted); white-space:nowrap;">Branch Code</td>
+          <td style="padding:16px 24px; font-weight:700; font-size:16px; text-align:right;">255355</td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--border);">
+          <td style="padding:16px 24px; font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:.1em; color:var(--muted); white-space:nowrap;">Swift Code</td>
+          <td style="padding:16px 24px; font-weight:700; font-size:16px; text-align:right;">FIRNZAJJ</td>
+        </tr>
+        <tr>
+          <td style="padding:16px 24px; font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:.1em; color:var(--muted); white-space:nowrap;">Account Type</td>
+          <td style="padding:16px 24px; font-weight:700; font-size:16px; text-align:right;">Gold Business Account</td>
+        </tr>
+      </table>
+    </div>
+    <p style="color:var(--muted); font-size:13px; font-weight:500; margin-top:16px; max-width:400px;">
+      All donations are used solely for movement operations and community programmes.
+    </p>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════ VISION ══ -->
+<section class="section-grid">
+  <div style="background:#F0F4F1; border-radius:24px; padding:clamp(48px,8vw,96px); text-align:center;">
+    <span class="badge" style="margin-bottom:24px;">Our Vision for the Eastern Cape</span>
+    <blockquote class="font-display" style="font-size:clamp(28px,5vw,56px); line-height:1; color:var(--fg); max-width:900px; margin:0 auto 24px;">
+      "We believe every community deserves accountable leadership, meaningful opportunities and the chance to shape its own future."
+    </blockquote>
+    <p style="color:var(--muted); font-size:18px; font-weight:500; max-width:600px; margin:0 auto; line-height:1.7;">
+      Together with citizens, partners and institutions, we are building an Eastern Cape where communities do not simply receive development — they help lead it.
+    </p>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════ CONTACT ══ -->
+<section id="contact" class="section-grid">
+  <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:16px;">
+    <div class="card" style="padding:40px;">
+      <span class="badge" style="margin-bottom:24px;">Contact Us</span>
+      <h2 class="font-display" style="font-size:clamp(36px,5vw,60px); line-height:.9; margin-bottom:24px;">Get in Touch.</h2>
+      <div style="display:flex; flex-direction:column; gap:16px;">
+        <div>
+          <div style="font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:.1em; color:var(--muted); margin-bottom:6px;">General Enquiries</div>
+          <a href="mailto:info@phakamaec.org" style="font-family:'Bebas Neue',sans-serif; font-size:22px; color:var(--fg); text-decoration:none;">info@phakamaec.org</a>
+        </div>
+        <div>
+          <div style="font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:.1em; color:var(--muted); margin-bottom:6px;">Media</div>
+          <a href="mailto:media@phakamaec.org" style="font-family:'Bebas Neue',sans-serif; font-size:22px; color:var(--fg); text-decoration:none;">media@phakamaec.org</a>
+        </div>
+        <div>
+          <div style="font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:.1em; color:var(--muted); margin-bottom:6px;">Phone</div>
+          <a href="tel:+27799200361" style="font-family:'Bebas Neue',sans-serif; font-size:22px; color:var(--fg); text-decoration:none;">+27(0)799200361</a>
+        </div>
+        <div>
+          <div style="font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:.1em; color:var(--muted); margin-bottom:6px;">Facebook</div>
+          <a href="https://www.facebook.com/PhakamaEasternCape" target="_blank" style="font-family:'Bebas Neue',sans-serif; font-size:22px; color:var(--primary); text-decoration:none;">Phakama Eastern Cape</a>
+        </div>
+      </div>
+    </div>
+    <div class="card" style="background:var(--secondary); color:#fff; padding:40px; display:flex; flex-direction:column; justify-content:space-between;">
+      <div>
+        <span class="badge badge-dark" style="margin-bottom:24px;">Step off the sidelines.</span>
+        <h3 class="font-display" style="font-size:clamp(32px,4vw,52px); line-height:.9; margin-bottom:28px;">Ready to make a difference?</h3>
+        <p style="color:rgba(255,255,255,.75); font-weight:500; line-height:1.7; margin-bottom:32px;">
+          Join the growing community of citizens working to build a better Eastern Cape.
+        </p>
+      </div>
+      <div style="display:flex; flex-direction:column; gap:12px;">
+        <a href="mailto:info@phakamaec.org?subject=Membership Application" class="btn-white" style="width:100%; justify-content:center;">Become a Member</a>
+        <a href="#donate" class="btn-outline-white" style="width:100%; justify-content:center;">Donate</a>
+        <a href="mailto:info@phakamaec.org?subject=Partnership Enquiry" class="btn-outline-white" style="width:100%; justify-content:center;">Partner With Us</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ═══════════════════════════════════════════════════════ FOOTER ══ -->
+<footer style="border-top:1px solid var(--border); background:#fff; margin-top:0;">
+  <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:16px; padding:32px; border-bottom:1px solid var(--border);">
+    <div style="padding:16px;">
+      <div class="font-display" style="font-size:40px; margin-bottom:12px;">Phakama.</div>
+      <p style="color:var(--muted); font-size:14px; font-weight:600; line-height:1.6; margin-bottom:20px;">A civic movement dedicated to the resurgence of the Eastern Cape — registered NPC &amp; DSD-registered NPO.</p>
+      <a href="mailto:info@phakamaec.org" style="font-size:13px; font-weight:700; text-transform:uppercase; letter-spacing:.08em; color:var(--fg); text-decoration:none;">info@phakamaec.org</a><br/>
+      <a href="tel:+27799200361" style="font-size:13px; font-weight:700; text-transform:uppercase; letter-spacing:.08em; color:var(--fg); text-decoration:none; margin-top:6px; display:block;">+27(0)799200361</a><br/>
+      <a href="https://www.facebook.com/PhakamaEasternCape" target="_blank" style="font-size:13px; font-weight:700; text-transform:uppercase; letter-spacing:.08em; color:var(--primary); text-decoration:none; margin-top:6px; display:block;">📘 Follow on Facebook</a>
+    </div>
+    <div style="padding:16px;">
+      <div style="font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:.12em; color:var(--muted); background:rgba(0,0,0,.06); padding:4px 10px; display:inline-block; margin-bottom:20px;">Quick Links</div>
+      <div style="display:flex; flex-direction:column; gap:10px;">
+        <a href="#" style="font-family:'Bebas Neue',sans-serif; font-size:20px; color:var(--fg); text-decoration:none; letter-spacing:.03em;">Home</a>
+        <a href="#about" style="font-family:'Bebas Neue',sans-serif; font-size:20px; color:var(--fg); text-decoration:none; letter-spacing:.03em;">About Us</a>
+        <a href="#priorities" style="font-family:'Bebas Neue',sans-serif; font-size:20px; color:var(--fg); text-decoration:none; letter-spacing:.03em;">Programmes</a>
+        <a href="#news" style="font-family:'Bebas Neue',sans-serif; font-size:20px; color:var(--fg); text-decoration:none; letter-spacing:.03em;">News &amp; Media</a>
+        <a href="#events" style="font-family:'Bebas Neue',sans-serif; font-size:20px; color:var(--fg); text-decoration:none; letter-spacing:.03em;">Events</a>
+        <a href="#join" style="font-family:'Bebas Neue',sans-serif; font-size:20px; color:var(--fg); text-decoration:none; letter-spacing:.03em;">Get Involved</a>
+        <a href="#contact" style="font-family:'Bebas Neue',sans-serif; font-size:20px; color:var(--fg); text-decoration:none; letter-spacing:.03em;">Contact Us</a>
+      </div>
+    </div>
+    <div style="padding:16px;">
+      <div style="font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:.12em; color:var(--muted); background:rgba(0,0,0,.06); padding:4px 10px; display:inline-block; margin-bottom:20px;">Quick Downloads</div>
+      <div style="display:flex; flex-direction:column; gap:10px;">
+        <a href="#" style="font-size:13px; font-weight:700; text-transform:uppercase; letter-spacing:.08em; color:var(--muted); text-decoration:none;">↗ Privacy Policy</a>
+        <a href="#" style="font-size:13px; font-weight:700; text-transform:uppercase; letter-spacing:.08em; color:var(--muted); text-decoration:none;">↗ Constitution</a>
+        <a href="#" style="font-size:13px; font-weight:700; text-transform:uppercase; letter-spacing:.08em; color:var(--muted); text-decoration:none;">↗ Public Strategy 2025–2027</a>
+        <a href="#" style="font-size:13px; font-weight:700; text-transform:uppercase; letter-spacing:.08em; color:var(--muted); text-decoration:none;">↗ Annual Reports (Coming Soon)</a>
+        <a href="#" style="font-size:13px; font-weight:700; text-transform:uppercase; letter-spacing:.08em; color:var(--muted); text-decoration:none;">↗ Impact Portfolio (Coming Soon)</a>
+        <a href="#join" style="font-size:13px; font-weight:700; text-transform:uppercase; letter-spacing:.08em; color:var(--muted); text-decoration:none;">↗ Membership Form</a>
+      </div>
+    </div>
+    <div style="padding:16px; background:#F0F4F1; border-radius:16px; display:flex; flex-direction:column; justify-content:space-between;">
+      <div>
+        <span class="badge" style="margin-bottom:16px;">Action</span>
+        <h4 class="font-display" style="font-size:40px; line-height:.9; margin-bottom:20px;">Step off the sidelines.</h4>
+      </div>
+      <div style="display:flex; flex-direction:column; gap:10px;">
+        <a href="mailto:info@phakamaec.org?subject=Membership Application" class="btn-primary" style="width:100%; justify-content:center; height:50px;">Become a Member</a>
+        <a href="#donate" class="btn-outline" style="width:100%; justify-content:center; height:50px;">Donate</a>
+        <a href="mailto:info@phakamaec.org?subject=Partnership Enquiry" class="btn-outline" style="width:100%; justify-content:center; height:50px;">Partner With Us</a>
+      </div>
+    </div>
+  </div>
+  <div style="padding:24px 32px; display:flex; flex-wrap:wrap; gap:16px; align-items:center; justify-content:space-between; font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:.08em; color:var(--muted);">
+    <span>&copy; 2026 Phakama Eastern Cape. All rights reserved.</span>
+    <div style="display:flex; gap:20px; flex-wrap:wrap;">
+      <a href="#" style="color:var(--muted); text-decoration:none;">Privacy Policy</a>
+      <a href="#" style="color:var(--muted); text-decoration:none;">Terms</a>
+      <a href="#" style="color:var(--muted); text-decoration:none;">Constitution</a>
+      <a href="https://www.facebook.com/PhakamaEasternCape" target="_blank" style="color:var(--muted); text-decoration:none;">📘 Facebook</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
 
