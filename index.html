@@ -1,152 +1,77 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Phakama Eastern Cape | Official Site</title>
-    <meta name="description" content="Phakama Eastern Cape - Youth Development, Leadership & Community Impact">
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTgwIiBoZWlnaHQ9IjE4MCIgdmlld0JveD0iMCAwIDE4MCAxODAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIxODAiIGhlaWdodD0iMTgwIiByeD0iMzYiIGZpbGw9IiNGRjNDMDAiLz4KPC9zdmc+Cg==">
-    
-    <style>
-        @import url("https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&display=swap");
-        
-        :root {
-            --primary: #FF3C00;
-            --background: #fff;
-            --foreground: #000;
-        }
-        
-        * { margin:0; padding:0; box-sizing:border-box; }
-        body {
-            font-family: 'Sora', system-ui, sans-serif;
-            line-height: 1.6;
-            color: var(--foreground);
-            background: var(--background);
-            overflow-x: hidden;
-        }
-        
-        header, nav, section, footer { padding: 1rem; }
-        .nav-link { cursor: pointer; padding: 0.75rem 1rem; }
-        .active { color: var(--primary); font-weight: 700; border-bottom: 3px solid var(--primary); }
-        
-        .section { display: none; }
-        .section.active { display: block; }
-        
-        .hero {
-            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://picsum.photos/id/1015/2000/1200') center/cover;
-            color: white;
-            text-align: center;
-            padding: 6rem 1rem;
-        }
-        
-        button, .btn {
-            background: var(--primary);
-            color: white;
-            border: none;
-            padding: 1rem 2rem;
-            border-radius: 9999px;
-            font-weight: 700;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-        button:hover, .btn:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(255,60,0,0.3); }
-    </style>
-</head>
-<body>
+￼
+PHAKAMA EASTERN CAPE
+JOIN
+DONATE
 
-<!-- Navigation -->
-<nav class="bg-white shadow sticky top-0 z-50">
-    <div class="max-w-7xl mx-auto flex items-center justify-between px-6 py-4">
-        <div class="flex items-center gap-3">
-            <div style="background:#FF3C00; width:48px; height:48px; border-radius:12px;"></div>
-            <div>
-                <strong style="font-size:1.4rem;">Phakama</strong><br>
-                <small>Eastern Cape</small>
-            </div>
-        </div>
-        
-        <div class="flex gap-2 flex-wrap text-sm font-medium" id="nav-menu">
-            <!-- Populated by JS -->
-        </div>
-    </div>
-</nav>
+CALENDAR
+UPCOMING EVENTS.
+Join us on the ground. Find an Imbizo, dialogue, or volunteer activity near you.
+￼
 
-<!-- Home -->
-<section id="home" class="section active">
-    <!-- Full index.html content would go here (hero + all sections) -->
-    <div class="hero">
-        <h1 style="font-size:3.5rem; line-height:1.1;">Rise. Lead. Transform.</h1>
-        <p style="font-size:1.3rem; max-width:700px; margin:2rem auto;">Phakama Eastern Cape develops young leaders through education, mentorship, and community action.</p>
-        <div class="flex gap-4 justify-center">
-            <button onclick="navigateTo('join')">Become a Member</button>
-            <button onclick="navigateTo('donate')" style="background:white; color:#FF3C00; border:2px solid #FF3C00;">Donate Now</button>
-        </div>
-    </div>
-    <!-- You can paste key excerpts from index.html here -->
-</section>
+EDUCATION & DEVELOPMENT
+FRIDAY, 31 JULY 2026
+SUSTAINABLE EDUCATION & COMMUNITY DEVELOPMENT
+Education Today, Leaders Tomorrow. Rising Together. Building Our Future.
 
-<!-- Other Sections (dynamically loaded content from each file) -->
-<section id="about" class="section">... (content from about.html) ...</section>
-<section id="mission" class="section">... (content from mission-vision.html) ...</section>
-<section id="focus" class="section">... (content from focus-areas.html) ...</section>
-<section id="impact" class="section">... (content from impact.html) ...</section>
-<section id="events" class="section">... (content from events.html) ...</section>
-<section id="news" class="section">... (content from news.html + sub-pages) ...</section>
-<section id="campaigns" class="section">... (content from campaigns.html) ...</section>
-<section id="join" class="section">... (content from join.html) ...</section>
-<section id="donate" class="section">... (content from donate.html) ...</section>
-<section id="contact" class="section">... (content from contact.html) ...</section>
-<section id="transparency" class="section">... (content from transparency.html) ...</section>
+DATE
+Friday 31 July 2026
 
-<footer style="background:#111; color:#ccc; text-align:center; padding:3rem 1rem;">
-    <p>© 2026 Phakama Eastern Cape. All rights reserved.</p>
-    <p style="margin-top:1rem;">
-        <a href="#" onclick="navigateTo('transparency')" style="color:#FF3C00;">Privacy • Terms • Constitution</a>
-    </p>
-</footer>
+TIME
+10:00 – 14:00
 
-<script>
-    // Navigation data
-    const pages = [
-        {id: "home", name: "Home"},
-        {id: "about", name: "About"},
-        {id: "mission", name: "Mission & Vision"},
-        {id: "focus", name: "Focus Areas"},
-        {id: "impact", name: "Our Impact"},
-        {id: "events", name: "Events"},
-        {id: "news", name: "News"},
-        {id: "campaigns", name: "Campaigns"},
-        {id: "join", name: "Join"},
-        {id: "donate", name: "Donate"},
-        {id: "contact", name: "Contact"},
-        {id: "transparency", name: "Transparency"}
-    ];
+VENUE
+Shinira A/A
 
-    // Render navigation
-    function renderNav() {
-        const nav = document.getElementById('nav-menu');
-        nav.innerHTML = pages.map(p => `
-            <a onclick="navigateTo('${p.id}')" class="nav-link">${p.name}</a>
-        `).join('');
-    }
+COLLABORATIVE EVENT
+ORGANISATION
+Phakama Eastern Cape
+HOST
+Shinira Community Development Forum (SCDF)
+CO-HOST
+Dr M Ziduli — Mentorship and Motivation
+INSTITUTIONS INVITED
+WALTER SISULU UNIVERSITY
+INGWE TVET COLLEGE
+KING SABATA DALINDYEBO TVET COLLEGE
+TARDI
+UNISA
 
-    function navigateTo(id) {
-        document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
-        const target = document.getElementById(id);
-        if (target) target.classList.add('active');
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
+INFO@PHAKAMAEC.ORG.ZA
 
-    // Initialize
-    renderNav();
-    
-    // Keyboard shortcut (optional)
-    document.addEventListener('keydown', e => {
-        if (e.key === '/' && document.activeElement.tagName !== "INPUT") {
-            e.preventDefault();
-            document.getElementById('nav-menu').scrollIntoView({ behavior: "smooth" });
-        }
-    });
-</script>
-</body>
-</html>
++27 79 920 0361
+PHAKAMA.
+A civic movement dedicated to the resurgence of the Eastern Cape — registered NPC & DSD-registered NPO.
+CONTACT DETAILS
+info@phakamaec.org
++27(0)799200361
+
+FOLLOW ON FACEBOOK
+
+QUICK LINKS
+	•	HOME
+	•	ABOUT US
+	•	OUR IMPACT
+	•	PROGRAMMES
+	•	NEWS & MEDIA
+	•	EVENTS
+	•	GET INVOLVED
+	•	CONTACT US
+QUICK DOWNLOADS
+	•	 PRIVACY POLICY
+	•	 CONSTITUTION
+	•	 PUBLIC STRATEGY 2025–2027
+	•	 ANNUAL REPORTS (COMING SOON)
+	•	 IMPACT PORTFOLIO (COMING SOON)
+	•	 MEMBERSHIP FORM
+ACTION
+STEP OFF THE SIDELINES.
+BECOME A MEMBER
+DONATE
+PARTNER WITH US
+© 2026 PHAKAMA EASTERN CAPE. ALL RIGHTS RESERVED.
+PRIVACY POLICY
+TERMS
+CONSTITUTION
+
+FACEBOOK
+
