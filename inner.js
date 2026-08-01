@@ -132,7 +132,6 @@ if(key==="become-a-member"){
               <label>Phone Number<input name="phone" type="tel" autocomplete="tel" required></label>
               <label class="wide">Email Address<input name="email" type="email" autocomplete="email" required></label>
               <label class="wide">Physical Address<textarea name="physicalAddress" rows="3" autocomplete="street-address" required></textarea></label>
-              <fieldset class="choice-field wide"><legend>Are you willing to volunteer?</legend><div class="choice-row"><label><input type="radio" name="willingToVolunteer" value="Yes" required> Yes</label><label><input type="radio" name="willingToVolunteer" value="No"> No</label></div></fieldset>
             </div>
           </fieldset>
 
