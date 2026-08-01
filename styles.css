@@ -18,6 +18,41 @@
 @media(max-width:560px){h2{font-size:44px}.hero-card{min-height:680px}.hero-copy{padding:55px 24px 30px}.hero-copy h1{font-size:47px;margin:28px 0}.hero-copy p{font-size:19px}.hero-buttons{display:grid}.about-copy{padding:55px 10px}.trust-card{padding:55px 30px}.metrics-grid{grid-template-columns:1fr}.metrics article{min-height:330px;padding:35px}.metrics article>strong{font-size:78px;margin-top:35px}.section-head{display:block}.outline-action{margin:25px 0 0}.event-grid img{height:150px}.involved-card{padding:60px 30px}.involved-card h2{font-size:39px}.involved-card a{width:100%;text-align:center}.blueprint-grid{grid-template-columns:1fr}.blueprint-title{grid-row:auto}.blueprint-grid>*{min-height:300px}.footer-grid{grid-template-columns:1fr}.footer-bottom{display:block}.footer-bottom div{margin-top:20px;flex-wrap:wrap;gap:12px}.vision{margin:22px}.side-actions{padding-block:14px}.side-brand{height:185px}.side-nav{padding-top:16px}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
 
+/* Mobile text-safety: keep every word visible within the viewport. */
+h1,h2,h3,.button,.pill,.small-pill,.outline-action,.side-nav a,.side-nav summary{
+  max-width:100%;
+  overflow-wrap:break-word;
+  word-break:normal;
+}
+h1,h2,h3{text-wrap:balance}
+main,.inner-main,.section-pad,.hero-grid,.about-grid,.footer-grid,
+.metrics-grid,.priority-grid,.news-grid,.event-grid,.blueprint-grid{min-width:0}
+
+@media(max-width:560px){
+  body{overflow-x:hidden}
+  .section-pad{padding-left:18px;padding-right:18px}
+  h2{font-size:clamp(36px,12vw,46px);line-height:.98;letter-spacing:-.5px}
+  h3{letter-spacing:-.25px}
+  .hero-copy h1{font-size:clamp(38px,12.5vw,50px);line-height:.94;letter-spacing:-1px}
+  .hero-copy p{font-size:18px;line-height:1.32}
+  .button,.pill,.small-pill,.outline-action,.involved-card a{
+    min-height:48px;
+    height:auto;
+    padding:14px 18px;
+    line-height:1.35;
+    white-space:normal;
+  }
+  .side-brand strong{font-size:18px;line-height:1.08}
+  .side-nav>a,.side-nav summary{font-size:15px;padding:11px 13px}
+  .side-nav details a{margin-left:12px;padding-left:18px;font-size:11px}
+  .trust-card,.metrics article,.how-grid>div,.how-grid>article,
+  .priority-grid article,.content-card{min-height:auto}
+  .coming-soon-panel{min-height:260px;padding:38px 22px}
+  .coming-soon-panel h3{font-size:30px;line-height:1.05}
+  .footer-grid a,.footer-grid p{overflow-wrap:anywhere}
+  .footer-bottom,.footer-bottom div{max-width:100%}
+}
+
 /* Consistent curved treatment for every visible rectangular control and panel. */
 .tag,.side-nav>a.active,.newsletter button,.news-image span{border-radius:8px}
 .about-purpose,.stats-band,.blueprint,.involved,.vision,.footer-action{border-radius:var(--radius)}
