@@ -50,7 +50,7 @@ if(key==="about-phakama"){
     </section>
     <section class="about-join"><h2>The time for waiting is over. The time for action is now.</h2><a href="become-a-member.html">Join the Movement <span>↗</span></a></section>
     <section class="about-footer">
-      <div><h2>Phakama.</h2><p>A civic movement dedicated to the resurgence of the Eastern Cape - registered NPC &amp; DSD-registered NPO.</p><small>Contact Details</small><a href="mailto:info@phakamaec.org.za">info@phakamaec.org.za</a><a href="tel:+27799200361">+27 (0)79 920 0361</a><small>Follow Us</small><a href="https://www.tiktok.com/@phakama.ec?_r=1&amp;_t=ZS-98NveYnJPaj" target="_blank" rel="noopener noreferrer">↗ TikTok</a><a href="https://www.facebook.com/profile.php?id=61591961061514" target="_blank" rel="noopener noreferrer">↗ Facebook</a><a href="https://www.instagram.com/phakama_easterncape/" target="_blank" rel="noopener noreferrer">↗ Instagram</a></div>
+      <div><h2>Phakama.</h2><p>A civic movement dedicated to the resurgence of the Eastern Cape - registered NPC &amp; DSD-registered NPO.</p><small>Contact Details</small><a href="mailto:info@phakamaec.org.za">info@phakamaec.org.za</a><a href="tel:+27799200361">+27 (0)79 920 0361</a><small>Follow Us</small><div class="social-icons"><a href="https://www.tiktok.com/@phakama.ec?_r=1&amp;_t=ZS-98NveYnJPaj" target="_blank" rel="noopener noreferrer" aria-label="TikTok"><span class="social-icon tiktok" aria-hidden="true">♪</span><span>TikTok</span></a><a href="https://www.facebook.com/profile.php?id=61591961061514" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><span class="social-icon facebook" aria-hidden="true">f</span><span>Facebook</span></a><a href="https://www.instagram.com/phakama_easterncape/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><span class="social-icon instagram" aria-hidden="true">◎</span><span>Instagram</span></a></div></div>
       <div><span class="tag soft-resource">Quick Links</span><a href="index.html">Home</a><a href="about-phakama.html">About Us</a><a href="index.html#impact">Our Impact</a><a href="focus-areas.html">Programmes</a><a href="news.html">News &amp; Media</a><a href="events.html">Events</a><a href="become-a-member.html">Get Involved</a><a href="contact.html">Contact Us</a></div>
       <div><span class="tag soft-resource">Resources</span><p>No resources are available yet.<br>Documents will be placed here soon.</p></div>
       <div class="about-footer-action"><span class="tag orange-tag">Action</span><h3>Step Off<br>the<br>Sidelines.</h3><a href="become-a-member.html">Become a Member</a><a href="donate.html">Donate</a><a href="partner-with-us.html">Partner With Us</a></div>
@@ -116,24 +116,75 @@ if(key==="become-a-member"){
         <span class="tag green-tag">Membership Application</span>
         <h2>Become a<br>Member.</h2>
         <p>Takes less than 3 minutes to complete.</p>
-        <form class="member-form" id="memberForm">
-          <label>First Name<input name="firstName" autocomplete="given-name" required></label>
-          <label>Last Name<input name="lastName" autocomplete="family-name" required></label>
-          <label>SA ID Number<input name="idNumber" inputmode="numeric" minlength="13" maxlength="13" required></label>
-          <label>Phone Number<input name="phone" type="tel" autocomplete="tel" required></label>
-          <label class="wide">Email Address<input name="email" type="email" autocomplete="email" required></label>
-          <label class="district-field">District Municipality<span class="rounded-select"><select name="district" required><option value="">Select</option><option>Alfred Nzo</option><option>Amathole</option><option>Buffalo City</option><option>Chris Hani</option><option>Joe Gqabi</option><option>Nelson Mandela Bay</option><option>OR Tambo</option><option>Sarah Baartman</option></select></span></label>
-          <label>Ward Number<input name="ward" inputmode="numeric" required></label>
-          <label class="consent wide"><input type="checkbox" required><span>I confirm that the information supplied is correct and consent to being contacted about my membership application.</span></label>
+        <form class="member-form" id="memberForm" action="https://formsubmit.co/aphiko2@gmail.com" method="POST">
+          <input type="hidden" name="_subject" value="New Phakama Eastern Cape Membership Application">
+          <input type="hidden" name="_template" value="table">
+          <input type="hidden" name="_captcha" value="true">
+          <input type="hidden" name="_next" value="https://phakamaec.org.za/become-a-member.html?submitted=1">
+          <input class="form-honeypot" type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true">
+          <fieldset class="form-group wide"><legend>1. Personal Details</legend>
+            <div class="form-fields">
+              <label>First Name<input name="firstName" autocomplete="given-name" required></label>
+              <label>Last Name<input name="lastName" autocomplete="family-name" required></label>
+              <label>SA ID Number<input name="idNumber" inputmode="numeric" minlength="13" maxlength="13" pattern="[0-9]{13}" required></label>
+              <label>Date of Birth<input name="dateOfBirth" type="date" autocomplete="bday" required></label>
+              <fieldset class="choice-field"><legend>Gender</legend><div class="choice-row"><label><input type="radio" name="gender" value="Female" required> Female</label><label><input type="radio" name="gender" value="Male"> Male</label><label><input type="radio" name="gender" value="Other"> Other</label><label><input type="radio" name="gender" value="Prefer not to say"> Prefer not to say</label></div></fieldset>
+              <label>Phone Number<input name="phone" type="tel" autocomplete="tel" required></label>
+              <label class="wide">Email Address<input name="email" type="email" autocomplete="email" required></label>
+              <label class="wide">Physical Address<textarea name="physicalAddress" rows="3" autocomplete="street-address" required></textarea></label>
+              <fieldset class="choice-field wide"><legend>Are you willing to volunteer?</legend><div class="choice-row"><label><input type="radio" name="willingToVolunteer" value="Yes" required> Yes</label><label><input type="radio" name="willingToVolunteer" value="No"> No</label></div></fieldset>
+            </div>
+          </fieldset>
+
+          <fieldset class="form-group wide"><legend>2. Region / District</legend>
+            <div class="form-fields">
+              <label class="district-field">District Municipality<span class="rounded-select"><select name="district" required><option value="">Select district</option><option>Buffalo City Metro</option><option>Nelson Mandela Bay Metro</option><option>Alfred Nzo District</option><option>Amathole District</option><option>Chris Hani District</option><option>Joe Gqabi District</option><option>OR Tambo District</option><option>Sarah Baartman District</option></select></span></label>
+              <label>Ward Number (if known)<input name="ward" inputmode="numeric"></label>
+              <fieldset class="choice-field wide"><legend>Age Group</legend><div class="choice-row"><label><input type="radio" name="ageGroup" value="18-35" required> 18-35</label><label><input type="radio" name="ageGroup" value="36-50"> 36-50</label><label><input type="radio" name="ageGroup" value="51+"> 51+</label></div></fieldset>
+            </div>
+          </fieldset>
+
+          <fieldset class="form-group wide"><legend>3. Skills / Expertise <small>(Optional - select every area where you can assist)</small></legend>
+            <div class="skills-grid">
+              <label><input type="checkbox" name="skills" value="Agriculture / Food Security"> Agriculture / Food Security</label>
+              <label><input type="checkbox" name="skills" value="Finance / Administration"> Finance / Administration</label>
+              <label><input type="checkbox" name="skills" value="Social Development"> Social Development</label>
+              <label><input type="checkbox" name="skills" value="Governance / Leadership"> Governance / Leadership</label>
+              <label><input type="checkbox" name="skills" value="Community Mobilisation"> Community Mobilisation</label>
+              <label><input type="checkbox" name="skills" value="Legal / Compliance"> Legal / Compliance</label>
+              <label><input type="checkbox" name="skills" value="Youth Development"> Youth Development</label>
+              <label class="other-skill">Other<input name="otherSkill" placeholder="Please specify"></label>
+            </div>
+          </fieldset>
+
+          <fieldset class="form-group declaration wide"><legend>4. Declaration &amp; Commitment</legend>
+            <p>I confirm that I:</p>
+            <ul>
+              <li>Support the mission and values of Phakama Eastern Cape.</li>
+              <li>Will uphold its Constitution, Code of Conduct, and organisational rules.</li>
+              <li>Will act with integrity and accountability in all organisational matters.</li>
+              <li>Acknowledge Phakama's non-partisan status and will not use it for party-political purposes.</li>
+              <li>Consent to the processing of my personal information in line with POPIA for membership administration.</li>
+            </ul>
+            <label class="consent"><input type="checkbox" name="declarationAgreement" value="Agreed" required><span>I agree to the above declaration and confirm that the supplied information is correct.</span></label>
+            <label class="consent"><input type="checkbox" name="emailTransmissionConsent" value="Consent given" required><span>I consent to my personal information, including my ID number, being transmitted to the membership team by email to process this application.</span></label>
+            <div class="form-fields signature-fields"><label>Signature (type your full name)<input name="signature" required></label><label>Date<input name="applicationDate" type="date" required></label></div>
+          </fieldset>
+
+          <aside class="membership-fee wide"><strong>Membership Contribution</strong><span>Phakama Eastern Cape membership contribution is R50 per annum.</span></aside>
+
+          <fieldset class="form-group office-only wide" disabled><legend>Office Use Only</legend><p>Completed internally after the application is received.</p><div class="form-fields"><label>Region Name<input name="officeRegion"></label><label>Ward<input name="officeWard"></label><label>Office Signature<input name="officeSignature"></label><label>Date<input name="officeDate" type="date"></label></div></fieldset>
           <button class="submit-member wide" type="submit">Submit Application <b>→</b></button>
           <output class="wide" aria-live="polite"></output>
         </form>
       </section>
     </div>`;
-  document.querySelector("#memberForm").addEventListener("submit",event=>{
-    event.preventDefault();
-    event.currentTarget.querySelector("output").textContent="Thank you. Your membership application has been captured locally for this demonstration.";
-    event.currentTarget.reset();
+  const memberForm=document.querySelector("#memberForm");
+  if(new URLSearchParams(location.search).get("submitted")==="1") memberForm.querySelector("output").textContent="Thank you. Your membership application has been sent to the Phakama Eastern Cape membership team.";
+  memberForm.addEventListener("submit",()=>{
+    const submitButton=memberForm.querySelector("button[type=submit]");
+    submitButton.disabled=true;
+    submitButton.textContent="Sending Application...";
   });
 }
 const menu=document.querySelector(".menu"), backdrop=document.querySelector(".backdrop");
@@ -141,4 +192,4 @@ function closeMenu(){document.body.classList.remove("menu-open");menu.setAttribu
 menu.addEventListener("click",()=>{const o=document.body.classList.toggle("menu-open");menu.setAttribute("aria-expanded",String(o))});backdrop.addEventListener("click",closeMenu);
 document.querySelectorAll("[data-year]").forEach(n=>n.textContent=new Date().getFullYear());
 const simpleFooter=document.querySelector(".simple-footer");
-if(simpleFooter&&!document.body.classList.contains("about-page")) simpleFooter.insertAdjacentHTML("beforeend",`<span class="simple-social"><a href="https://www.tiktok.com/@phakama.ec?_r=1&amp;_t=ZS-98NveYnJPaj" target="_blank" rel="noopener noreferrer">TikTok</a><a href="https://www.facebook.com/profile.php?id=61591961061514" target="_blank" rel="noopener noreferrer">Facebook</a><a href="https://www.instagram.com/phakama_easterncape/" target="_blank" rel="noopener noreferrer">Instagram</a></span>`);
+if(simpleFooter&&!document.body.classList.contains("about-page")) simpleFooter.insertAdjacentHTML("beforeend",`<span class="simple-social social-icons compact"><a href="https://www.tiktok.com/@phakama.ec?_r=1&amp;_t=ZS-98NveYnJPaj" target="_blank" rel="noopener noreferrer" aria-label="TikTok"><span class="social-icon tiktok" aria-hidden="true">♪</span></a><a href="https://www.facebook.com/profile.php?id=61591961061514" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><span class="social-icon facebook" aria-hidden="true">f</span></a><a href="https://www.instagram.com/phakama_easterncape/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><span class="social-icon instagram" aria-hidden="true">◎</span></a></span>`);
