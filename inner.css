@@ -132,3 +132,56 @@ body{background:var(--paper)}
 .value-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:35px 0}.value-grid article{padding:25px;border-radius:18px;background:var(--green2);color:white;font:700 17px/1.35 var(--display)}.collaboration-directory{background:var(--mint)}.professional-network{display:grid;grid-template-columns:1fr 1fr;gap:50px;margin:32px 0;padding:75px 7%;border-radius:var(--radius);background:var(--green2);color:white}.professional-network h2{font-size:clamp(42px,5vw,70px);line-height:.95;margin:28px 0}.professional-network p{font-size:17px;line-height:1.6}.professional-network ul{columns:2;line-height:1.6}.professional-network a{display:inline-flex;margin-top:24px;padding:16px 24px;border-radius:999px;background:var(--orange);font-weight:800}.partner-call{border:1px solid var(--line)}
 @media(max-width:900px){.cross-grid,.directory-grid,.professional-network{grid-template-columns:1fr}.value-grid{grid-template-columns:repeat(2,1fr)}.volunteer-impact{grid-template-columns:1fr}.professional-network ul{columns:1}}
 @media(max-width:560px){.cross-pillar,.impact-story,.impact-pillars,.impact-explore,.partner-values,.partner-benefits,.collaboration-directory,.partner-growth,.partner-call{padding:55px 22px}.cross-grid,.directory-grid,.value-grid{grid-template-columns:1fr}.volunteer-impact{padding:55px 24px}.work-links{display:grid}.work-links a{width:100%!important}.professional-network{padding:55px 24px}}
+
+/* Final mobile containment for every subpage and registration form. */
+html,body{max-width:100%;overflow-x:hidden}
+.inner-main,.inner-content,.membership-layout,.member-pitch,.member-form-wrap,
+.member-form,.form-group,.form-fields,.donate-layout,.donate-pitch,.contribution,
+.about-document,.about-chapter,.approved-content,.rich-panel,.partner-form-section,
+.partner-form,.cross-pillar,.impact-story,.impact-pillars,.impact-explore,
+.partner-values,.partner-benefits,.collaboration-directory,.partner-growth,
+.partner-call,.professional-network{min-width:0;max-width:100%}
+.inner-main p,.inner-main h1,.inner-main h2,.inner-main h3,.inner-main h4,
+.inner-main li,.inner-main label,.inner-main a,.inner-main span,.inner-main strong,
+.inner-main dd{overflow-wrap:anywhere;word-break:normal}
+@media(max-width:820px){
+  .inner-main{width:100%;max-width:100vw;overflow-x:clip}
+  .inner-content{width:100%;padding-inline:clamp(16px,5vw,24px)}
+  .inner-hero{width:auto;max-width:calc(100% - 32px);margin:16px;padding:46px 22px}
+  .inner-hero h1{font-size:clamp(38px,12vw,54px);line-height:.95}
+  .member-page .inner-content,.donate-page .inner-content{width:100%}
+  .membership-layout,.donate-layout,.about-feature,.inner-intro,.content-grid,
+  .approved-list,.network-grid,.impact-facts,.cross-grid,.directory-grid,
+  .value-grid,.professional-network,.partner-form-section{grid-template-columns:minmax(0,1fr)}
+  .member-form input,.member-form select,.member-form textarea,
+  .partner-form input,.partner-form select,.partner-form textarea{min-width:0;max-width:100%}
+  img,svg,video,iframe,table{max-width:100%;height:auto}
+}
+@media(max-width:560px){
+  .member-page .inner-content,.donate-page .inner-content{padding-inline:14px}
+  .member-pitch,.donate-pitch{padding:48px 22px}
+  .member-pitch h1,.donate-pitch h1{font-size:clamp(38px,13vw,54px);line-height:.94}
+  .member-form-wrap{padding:32px 0}
+  .member-form-wrap h2,.contribution h2,.approved-heading h2,.rich-intro h2,
+  .rich-panel>h2,.partnership-types>h2,.partner-network>h2,
+  .cross-pillar>h2,.impact-story>h2,.impact-pillars>h2,.impact-explore>h2,
+  .partner-values>h2,.partner-benefits>h2,.collaboration-directory>h2,
+  .partner-growth>h2,.partner-call>h2{font-size:clamp(32px,10.5vw,42px);line-height:1}
+  .form-group{width:100%;padding:22px 16px}
+  .form-fields,.skills-grid,.choice-row,.signature-fields{grid-template-columns:minmax(0,1fr)}
+  .choice-row{display:grid}
+  .membership-fee{width:100%;grid-template-columns:1fr}
+  .about-document{width:100%;padding-inline:10px}
+  .about-chapter{width:100%;padding:46px 18px}
+  .about-chapter>h2{font-size:clamp(32px,10vw,40px)}
+  .approved-content,.rich-panel,.partnership-types,.partner-network,
+  .cross-pillar,.impact-story,.impact-pillars,.impact-explore,.partner-values,
+  .partner-benefits,.collaboration-directory,.partner-growth,.partner-call{
+    width:100%;padding:48px 18px
+  }
+  .pillar-stack>article,.partner-form-section,.professional-network,
+  .volunteer-impact{width:100%;padding:40px 18px}
+  .impact-model li{grid-template-columns:36px minmax(0,1fr);padding:16px}
+  .organogram{width:100%;padding:30px 12px}
+  .simple-footer{padding-inline:16px}
+}
