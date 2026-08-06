@@ -2,6 +2,7 @@ const pages = {
   "about-phakama": {k:"About Us",t:"About Phakama Eastern Cape.",i:"A people-powered civic movement working with communities across the Eastern Cape.",d:"Phakama Eastern Cape brings citizens, partners and institutions together to strengthen accountability, promote local development and create sustainable opportunities.",cards:[["Civic Identity","We serve communities beyond election cycles and place public interest first."],["Community Rooted","Our work begins with local voices, priorities and lived experience."],["Province Wide","We build relationships and practical programmes across the Eastern Cape."]]},
   "mission-vision": {k:"About Us",t:"Mission & Vision.",i:"An empowered Eastern Cape where communities rise together through accountability, participation and shared leadership.",d:"Our mission is to mobilise, educate and connect communities so that together we build a stronger, more prosperous Eastern Cape.",cards:[["Community First","Communities are at the centre of everything we do."],["Accountability","We promote ethical leadership, transparency and responsible governance."],["Collaboration","We believe sustainable development is achieved through partnerships."],["Respect & Inclusion","Every community deserves dignity, participation and equal opportunity."],["Professionalism","We strive for excellence, integrity and responsible stewardship."],["Sustainable Development","We support practical solutions that create lasting social and economic impact."]]},
   "our-journey": {k:"About Us",t:"Our Journey.",i:"From vision to institution: built by volunteers, strengthened through partnerships.",d:"Launched on 20 September 2025, Phakama Eastern Cape has grown without an office, operational funding or paid employees - powered by citizens who contribute their time, expertise and personal resources.",cards:[["The Beginning","A people-powered civic movement launched to help communities shape a better Eastern Cape."],["Building the Foundation","NPC and NPO registration, governance systems, regional structures, policies and a Strategic Plan for 2025-2027."],["Growing Through Partnerships","Relationships across communities, government, education, traditional leadership, business and civil society."],["Looking Ahead","Stronger governance, expanded regional structures, deeper partnerships and the First Elective Provincial Imbizo."]]},
+  "how-we-work": {k:"About Us",t:"How We Work.",i:"Community first. Partnership driven. Action focused.",d:"Phakama Eastern Cape works through listening, respectful collaboration and practical action.",cards:[]},
   "focus-areas": {k:"Our Work",t:"Our Work.",i:"Building stronger communities through three Strategic Pillars.",d:"Governance, economic development and social cohesion work together to create community-led development.",cards:[]},
   "action-plan": {k:"Our Impact",t:"Our Impact.",i:"Building a civic movement and strengthening communities.",d:"Our impact grows through volunteer leadership, community participation and trusted partnerships.",cards:[]},
   "campaigns": {k:"Programmes",t:"Campaigns.",i:"Programme information will be placed here soon.",d:"This section is currently empty. Campaign information will be published here soon.",cards:[]},
@@ -19,13 +20,67 @@ const pages = {
 };
 const key=document.body.dataset.page, p=pages[key]||pages["about-phakama"];
 document.title=`${p.t.replace(".","")} | Phakama Eastern Cape`;
+const aboutMenu=[...document.querySelectorAll(".side-nav details")].find(item=>item.querySelector("summary")?.textContent.trim()==="About Us");
+if(aboutMenu){
+  const whoWeAre=aboutMenu.querySelector('a[href="about-phakama.html"]');
+  if(whoWeAre) whoWeAre.textContent="Who We Are";
+  aboutMenu.querySelector('a[href="mission-vision.html"]')?.remove();
+  const journeyLink=aboutMenu.querySelector('a[href="our-journey.html"]');
+  if(journeyLink&&!aboutMenu.querySelector('a[href="how-we-work.html"]')) journeyLink.insertAdjacentHTML("afterend",'<a href="how-we-work.html">How We Work</a>');
+}
 document.querySelectorAll(".side-nav a").forEach(link=>link.classList.toggle("active",link.getAttribute("href")===`${key}.html`));
-document.querySelector("#pageHero").innerHTML=`<div><div class="crumb"><a href="index.html">Home</a> &nbsp; / &nbsp; ${p.k}</div><span class="tag orange-tag">${p.k}</span><h1>${p.t.replace(" "," <em>")}</em></h1></div>`;
+document.querySelector("#pageHero").innerHTML=`<div><div class="crumb"><a href="../index.html">Home</a> &nbsp; / &nbsp; ${p.k}</div><span class="tag orange-tag">${p.k}</span><h1>${p.t.replace(" "," <em>")}</em></h1></div>`;
 const isResourcePage=p.k==="Resources";
 const isNewsMediaPage=p.k==="News & Media";
 const isProgrammePage=p.k==="Programmes";
 document.querySelector("#pageContent").innerHTML=`<div class="inner-intro"><h2>${p.i}</h2><p>${p.d}</p></div>${isResourcePage||isNewsMediaPage||isProgrammePage?`<div class="resources-empty" role="status"><span class="tag orange-tag">Coming Soon</span><h2>No ${isResourcePage?"resources":isProgrammePage?"programme information":"content"} have been published yet.</h2><p>${isResourcePage?"Documents and downloads":isProgrammePage?"Programme details":"News, events and media"} will be placed here soon.</p></div>`:`<div class="content-grid">${p.cards.map((c,i)=>`<article class="content-card ${i===1?"accent":i===2?"green":""}"><span>0${i+1}</span><h3>${c[0]}</h3><p>${c[1]}</p></article>`).join("")}</div><div class="inner-cta"><h2>Ready to take the next step?</h2><a class="button" href="contact.html">Contact Us</a></div>`}`;
-if(key==="about-phakama"){
+if(key==="about-phakama-wireframe-legacy"){
+  document.body.classList.add("about-wireframe-page");
+  document.querySelector(".side-nav").innerHTML=`
+    <a href="../index.html">Home</a>
+    <details open><summary class="active">About Us</summary><a class="active" href="#who-we-are">Who We Are</a><a href="#our-journey">Our Journey</a><a href="#how-we-work">How We Work</a></details>
+    <a href="action-plan.html">Our Impact</a><a href="news.html">News &amp; Events</a><a href="become-a-member.html">Get Involved</a><a href="reports-policies.html">Resources</a><a href="contact.html">Contact Us</a>`;
+  document.querySelector("#pageHero").innerHTML=`
+    <div class="wireframe-hero-card"><span>About Phakama Eastern Cape</span><h1>A People-Powered Movement.</h1><p>Working alongside communities to build a stronger, more prosperous and more accountable Eastern Cape.</p><div><a href="become-a-member.html">Join Us</a><a href="contact.html">Contact Us</a></div></div>
+    <nav class="wireframe-hero-links" aria-label="About Us page sections"><a href="#vision-values">Vision, Mission &amp; Values</a><a href="#community-trust">Why Communities Trust Phakama Eastern Cape</a></nav>`;
+  document.querySelector("#pageContent").innerHTML=`
+    <section class="wireframe-section vision-values" id="who-we-are">
+      <div class="wireframe-heading"><span>Who We Are</span><h2>A People-Powered Movement.</h2></div>
+      <div class="wireframe-card-grid three" id="vision-values">
+        <article><h3>Vision</h3><p>An empowered Eastern Cape where communities rise together through accountability, participation and shared leadership.</p></article>
+        <article><h3>Mission</h3><p>To mobilise, educate and connect communities so that together we build a stronger, more prosperous Eastern Cape.</p></article>
+        <article><h3>Values</h3><ul><li>Community First</li><li>Accountability</li><li>Collaboration</li><li>Respect &amp; Inclusion</li><li>Professionalism</li><li>Sustainable Development</li></ul></article>
+      </div>
+    </section>
+    <section class="wireframe-section clusters" id="community-trust">
+      <div class="wireframe-heading"><span>Who We Are</span><h2>Our Strategic Clusters</h2></div>
+      <div class="wireframe-card-grid three">
+        <article><h3>Governance &amp; Accountability</h3><p>Promoting ethical leadership, accountable governance, active citizenship and improved public service delivery.</p></article>
+        <article><h3>Economic Development</h3><p>Supporting entrepreneurship, agriculture, financial inclusion, cooperatives and sustainable local economic development.</p></article>
+        <article><h3>Social Cohesion &amp; Community Development</h3><p>Building safe, resilient and inclusive communities that promote human dignity, social cohesion, community wellbeing and opportunities for all.</p></article>
+      </div>
+      <div class="why-different"><h3>Why Phakama Eastern Cape Is Different</h3><ul><li><strong>Community-Led:</strong> We start by listening to communities and responding to their priorities.</li><li><strong>Province-Wide:</strong> We are building a growing network across all seven regions of the Eastern Cape.</li><li><strong>Built for the Future:</strong> We are building a sustainable civic institution that serves communities every day - not only during election periods.</li><li><strong>Solutions-Focused:</strong> We move beyond identifying problems by helping build practical, sustainable solutions.</li></ul></div>
+    </section>
+    <section class="wireframe-section journey-wireframe" id="our-journey">
+      <div class="wireframe-heading"><span>Our Journey</span><h2>Every organisation starts with an idea.</h2><p>Phakama Eastern Cape began - and continues to operate - without an office, without operational funding and without paid employees. Rather than waiting until every internal system was complete, the organisation chose to grow while serving communities.</p></div>
+      <div class="journey-timeline">
+        <article><b>01</b><h3>Launched</h3><p>September 2025</p></article>
+        <article><b>02</b><h3>First Elective Provincial Imbizo and Annual General Meeting</h3><p>September 2026</p></article>
+        <article><b>03</b><h3>Registration as a Non-Profit Company</h3><p>NPC</p></article>
+        <article><b>04</b><h3>Registration as a Non-Profit Organisation</h3><p>Department of Social Development</p></article>
+        <article><b>05</b><h3>Governance Development</h3><p>Key financial and operational systems.</p></article>
+      </div>
+    </section>
+    <section class="wireframe-section how-wireframe" id="how-we-work">
+      <div class="wireframe-heading"><span>How We Work</span><h2>Community first. Partnership driven. Action focused.</h2></div>
+      <div class="wireframe-card-grid three tall">
+        <article><h3>Community First</h3><p>We listen before we act, ensuring our work responds to the real needs and aspirations of communities.</p></article>
+        <article><h3>Partnership over Confrontation</h3><p>We believe respectful engagement, collaboration and evidence-based advocacy produce more sustainable outcomes than conflict alone.</p></article>
+        <article><h3>From Ideas to Action</h3><p>We move beyond identifying problems by building partnerships, supporting implementation and contributing to long-term solutions that strengthen governance, economic participation and community wellbeing.</p><p>Whether facilitating dialogue, promoting youth opportunities, supporting local economic development or strengthening civic participation, Phakama Eastern Cape remains committed to building a better future.</p></article>
+      </div>
+    </section>`;
+}
+if(key==="about-phakama-full-legacy"){
   document.body.classList.add("about-page");
   document.querySelector("#pageContent").innerHTML=`
     <section class="about-feature">
@@ -105,12 +160,89 @@ if(key==="about-phakama"){
       </article>
     </section>
     
-    <section class="about-join"><h2>Working together to Rescue and Revive the Eastern Cape.</h2><a href="become-a-member.html">Join the Movement <span>→</span></a></section>
     <section class="about-footer">
       <div><h2>Phakama Eastern Cape.</h2><p>A civic movement dedicated to the resurgence of the Eastern Cape - registered NPC &amp; DSD-registered NPO.</p><small>Contact Details</small><a href="mailto:info@phakamaec.org.za">info@phakamaec.org.za</a><a href="tel:+27799200361">+27 (0)79 920 0361</a><small>Follow Us</small><div class="social-icons"><a href="https://www.tiktok.com/@phakama.ec?_r=1&amp;_t=ZS-98NveYnJPaj" target="_blank" rel="noopener noreferrer" aria-label="TikTok"><img class="social-icon tiktok" src="https://cdn.simpleicons.org/tiktok/FFFFFF" alt="" loading="lazy"><span>TikTok</span></a><a href="https://www.facebook.com/profile.php?id=61591961061514" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><img class="social-icon facebook" src="https://cdn.simpleicons.org/facebook/FFFFFF" alt="" loading="lazy"><span>Facebook</span></a><a href="https://www.instagram.com/phakama_easterncape/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><img class="social-icon instagram" src="https://cdn.simpleicons.org/instagram/FFFFFF" alt="" loading="lazy"><span>Instagram</span></a></div></div>
-      <div><span class="tag soft-resource">Quick Links</span><a href="index.html">Home</a><a href="about-phakama.html">About Us</a><a href="index.html#impact">Our Impact</a><a href="focus-areas.html">Programmes</a><a href="news.html">News &amp; Media</a><a href="events.html">Events</a><a href="become-a-member.html">Get Involved</a><a href="contact.html">Contact Us</a></div>
+      <div><span class="tag soft-resource">Quick Links</span><a href="../index.html">Home</a><a href="about-phakama.html">About Us</a><a href="../index.html#impact">Our Impact</a><a href="focus-areas.html">Programmes</a><a href="news.html">News &amp; Media</a><a href="events.html">Events</a><a href="become-a-member.html">Get Involved</a><a href="contact.html">Contact Us</a></div>
       <div><span class="tag soft-resource">Resources</span><p>No resources are available yet.<br>Documents will be placed here soon.</p></div>
-      <div class="about-footer-action"><span class="tag orange-tag">Action</span><h3>Step Off<br>the<br>Sidelines.</h3><a href="become-a-member.html">Become a Member</a><a href="donate.html">Donate</a><a href="partner-with-us.html">Partner With Us</a></div>
+    </section>`;
+}
+if(key==="about-phakama"){
+  document.body.classList.add("about-fresh-page");
+  document.querySelector("#pageContent").innerHTML=`
+    <section class="fresh-about-intro" id="who-we-are">
+      <span class="tag orange-tag">About Us</span>
+      <h1>Who We Are.</h1>
+      <p>Phakama Eastern Cape is guided by a shared vision, a clear mission and values that place communities at the centre of lasting change.</p>
+    </section>
+
+    <section class="fresh-about-section fresh-guidance">
+      <div class="fresh-section-heading"><span>Vision, Mission &amp; Values</span><h2>A People-Powered Movement.</h2></div>
+      <div class="fresh-guidance-grid">
+        <article><small>Our Vision</small><p>An empowered Eastern Cape where communities rise together through accountability, participation and shared leadership.</p></article>
+        <article class="orange"><small>Our Mission</small><p>To mobilise, educate and connect communities so that together we build a stronger, more prosperous Eastern Cape.</p></article>
+        <article class="values"><small>Our Values</small><ul><li>Community First</li><li>Accountability</li><li>Collaboration</li><li>Respect &amp; Inclusion</li><li>Professionalism</li><li>Sustainable Development</li></ul></article>
+      </div>
+    </section>
+
+    <section class="fresh-about-section fresh-clusters">
+      <div class="fresh-section-heading"><span>Our Focus</span><h2>Our Strategic Clusters</h2></div>
+      <div class="fresh-cluster-grid">
+        <article><b>01</b><h3>Governance &amp; Accountability</h3><p>Promoting ethical leadership, accountable governance, active citizenship and improved public service delivery.</p></article>
+        <article><b>02</b><h3>Economic Development</h3><p>Supporting entrepreneurship, agriculture, financial inclusion, cooperatives and sustainable local economic development.</p></article>
+        <article><b>03</b><h3>Social Cohesion &amp; Community Development</h3><p>Building safe, resilient and inclusive communities that promote human dignity, social cohesion, community wellbeing and opportunities for all.</p></article>
+      </div>
+      <div class="fresh-difference-heading"><span class="tag orange-tag">Our Difference</span><h2>Why Phakama Eastern Cape Is Different</h2></div>
+      <div class="fresh-difference-rectangle">
+        <ul><li><strong>Community-Led</strong><span>We start by listening to communities and responding to their priorities. Phakama Eastern Cape began - and continues to operate - without an office, without operational funding and without paid employees.</span></li><li><strong>Province-Wide</strong><span>We are building a growing network across all seven regions of the Eastern Cape.</span></li><li><strong>Built for the Future</strong><span>We are building a sustainable civic institution that serves communities every day - not only during election periods.</span></li><li><strong>Solutions-Focused</strong><span>We move beyond identifying problems by helping build practical, sustainable solutions.</span></li></ul>
+      </div>
+    </section>
+
+    <section class="fresh-about-section fresh-journey" id="our-journey">
+      <div class="fresh-section-heading"><span>Our Journey</span><h2>Every organisation starts with an idea.</h2><p>Phakama Eastern Cape began - and continues to operate - without an office, without operational funding and without paid employees. Rather than waiting until every internal system was complete, the organisation chose to grow while serving communities.</p></div>
+      <div class="fresh-timeline">
+        <article><b>01</b><h3>Launched</h3><p>September 2025</p></article>
+        <article><b>02</b><h3>First Elective Provincial Imbizo and Annual General Meeting</h3><p>September 2026</p></article>
+        <article><b>03</b><h3>Registration as a Non-Profit Company</h3><p>NPC</p></article>
+        <article><b>04</b><h3>Registration as a Non-Profit Organisation</h3><p>With the Department of Social Development</p></article>
+        <article><b>05</b><h3>Development of Key Systems</h3><p>Governance, financial and operational systems</p></article>
+      </div>
+    </section>
+
+    <section class="fresh-about-section fresh-work" id="how-we-work">
+      <div class="fresh-section-heading"><span>How We Work</span><h2>Community first. Partnership driven. Action focused.</h2></div>
+      <div class="fresh-work-grid">
+        <article><b>01</b><h3>Community First</h3><p>We listen before we act, ensuring our work responds to the real needs and aspirations of communities.</p></article>
+        <article><b>02</b><h3>Partnership over Confrontation</h3><p>We believe respectful engagement, collaboration and evidence-based advocacy produce more sustainable outcomes than conflict alone.</p></article>
+        <article><b>03</b><h3>From Ideas to Action</h3><p>We move beyond identifying problems by building partnerships, supporting implementation and contributing to long-term solutions that strengthen governance, economic participation and community wellbeing.</p><p>Whether facilitating dialogue between communities and government, promoting youth opportunities, supporting local economic development or strengthening civic participation, Phakama Eastern Cape remains committed to building an Eastern Cape where everyone has a role to play in shaping a better future.</p></article>
+      </div>
+    </section>`;
+  document.querySelector("#our-journey")?.remove();
+  document.querySelector("#how-we-work")?.remove();
+}
+if(key==="our-journey"){
+  document.body.classList.add("about-fresh-page");
+  document.querySelector("#pageContent").innerHTML=`
+    <section class="fresh-about-section fresh-journey journey-page-section" id="our-journey">
+      <div class="fresh-section-heading"><span>Our Journey</span><h2>Every organisation starts with an idea.</h2><p>Phakama Eastern Cape began - and continues to operate - without an office, without operational funding and without paid employees. Rather than waiting until every internal system was complete, the organisation chose to grow while serving communities.</p></div>
+      <div class="fresh-timeline">
+        <article><b>01</b><h3>Launched</h3><p>September 2025</p></article>
+        <article><b>02</b><h3>First Elective Provincial Imbizo and Annual General Meeting</h3><p>September 2026</p></article>
+        <article><b>03</b><h3>Registration as a Non-Profit Company</h3><p>NPC</p></article>
+        <article><b>04</b><h3>Registration as a Non-Profit Organisation</h3><p>With the Department of Social Development</p></article>
+        <article><b>05</b><h3>Development of Key Systems</h3><p>Governance, financial and operational systems</p></article>
+      </div>
+    </section>`;
+}
+if(key==="how-we-work"){
+  document.body.classList.add("about-fresh-page");
+  document.querySelector("#pageContent").innerHTML=`
+    <section class="fresh-about-section fresh-work work-page-section" id="how-we-work">
+      <div class="fresh-section-heading"><span>How We Work</span><h2>Community first. Partnership driven. Action focused.</h2></div>
+      <div class="fresh-work-grid">
+        <article><b>01</b><h3>Community First</h3><p>We listen before we act, ensuring our work responds to the real needs and aspirations of communities.</p></article>
+        <article><b>02</b><h3>Partnership over Confrontation</h3><p>We believe respectful engagement, collaboration and evidence-based advocacy produce more sustainable outcomes than conflict alone.</p></article>
+        <article><b>03</b><h3>From Ideas to Action</h3><p>We move beyond identifying problems by building partnerships, supporting implementation and contributing to long-term solutions that strengthen governance, economic participation and community wellbeing.</p><p>Whether facilitating dialogue between communities and government, promoting youth opportunities, supporting local economic development or strengthening civic participation, Phakama Eastern Cape remains committed to building an Eastern Cape where everyone has a role to play in shaping a better future.</p></article>
+      </div>
     </section>`;
 }
 if(key==="focus-areas"){
